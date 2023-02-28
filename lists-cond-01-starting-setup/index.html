@@ -28,13 +28,20 @@
         No goals have been added yet - please start adding some!
       </p>
       <ul v-else>
-        <li v-for="(goal, index) in goals">{{index + 1}} - {{goal}}</li>
-      </ul>
-      <ul>
-        <li v-for="(value, key) in {name:'Iyan', age: 24}">
-          {{key}} - {{value}}
+        <li
+          v-for="(goal, index) in goals"
+          :key="goal"
+          @click="removeGoal(index)"
+        >
+          <p>{{index + 1}} - {{goal}}</p>
+          <input type="text" name="" id="" @click.stop />
         </li>
       </ul>
+      <!-- <ul>
+        <li v-for="(value, key, index) in {name:'Iyan', age: 24}">
+          {{key}} - {{value}}
+        </li>
+      </ul> -->
       <p v-show="goals.length < 0">Can't be negative</p>
     </section>
   </body>
